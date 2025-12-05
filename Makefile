@@ -1,6 +1,7 @@
 # Minimal Makefile with start/stop
 
 APP = app.main:app
+TOPIC_APP = app.main_topic:app
 PID_FILE = .uvicorn.pid
 
 install:
@@ -8,6 +9,9 @@ install:
 
 run:
 	python -m uvicorn $(APP) --host 0.0.0.0 --port 8000 --reload
+
+run-topic:
+	python -m uvicorn $(TOPIC_APP) --host 0.0.0.0 --port 8000 --reload
 
 start:
 	nohup python -m uvicorn $(APP) --host 0.0.0.0 --port 8000 --reload \
